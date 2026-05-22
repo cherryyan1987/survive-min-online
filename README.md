@@ -52,7 +52,7 @@ Main website:
 https://survivemin.live/
 
 GitHub Pages mirror:
-https://cherryyan1987.github.io/-survive-min-online/
+https://cherryyan1987.github.io/survive-min-online/
 
 ---
 
@@ -99,7 +99,7 @@ Website:
 https://survivemin.live/
 
 Browser version:
-https://cherryyan1987.github.io/-survive-min-online/
+https://cherryyan1987.github.io/survive-min-online/
 
 ---
 
