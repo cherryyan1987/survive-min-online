@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Survive Min Online - Psychological Horror Visual Novel</title>
+
+  <meta
+    name="description"
+    content="Play Survive Min online in your browser. Experience a psychological horror visual novel filled with emotional tension, branching endings, and the unpredictable entity known as Min."
+  />
+
+  <meta
+    name="keywords"
+    content="Survive Min, Survive Min online, psychological horror visual novel, yandere VN, horror visual novel, browser VN"
+  />
+
+  <meta property="og:title" content="Survive Min Online" />
+  <meta
+    property="og:description"
+    content="Play Survive Min online in your browser. A psychological horror visual novel with emotional tension, branching endings, and yandere horror."
+  />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="8.jpg" />
+
+  <link rel="canonical" href="https://survivemin.live/" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d0d;
+      color: #f2f2f2;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('9.gif') center center/cover no-repeat;
+      filter: brightness(0.35);
+      transform: scale(1.03);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.8)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
+
+    .hero p {
+      font-size: 21px;
+      color: #e5e5e5;
+      margin-bottom: 34px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 38px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .primary-btn {
+      background: #ff4d88;
+      color: white;
+      box-shadow: 0 0 25px rgba(255,77,136,0.45);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      background: #ff6699;
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 24px;
+    }
+
+    .section h2 {
+      font-size: 42px;
+      margin-bottom: 24px;
+      color: white;
+    }
+
+    .section p {
+      font-size: 18px;
+      color: #d7d7d7;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 28px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,77,136,0.45);
+    }
+
+    .card h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+      color: white;
+    }
+
+    .screenshot {
+      margin-top: 50px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+    }
+
+    .screenshot img {
+      width: 100%;
+      display: block;
+    }
+
+    .quote {
+      background: #141414;
+      border-left: 4px solid #ff4d88;
+      padding: 26px;
+      border-radius: 16px;
+      margin-top: 24px;
+      color: #f0f0f0;
+      font-size: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: #999;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer a {
+      color: #ff6b9d;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>SURVIVE MIN</h1>
+
+      <p>
+        A psychological horror visual novel where every interaction feels unstable.
+        One night. One room. One entity trapped inside with you.
+      </p>
+
+      <div class="cta-group">
+        <a
+          class="cta-btn primary-btn"
+          href="https://survivemin.live/"
+          target="_blank"
+        >
+          Play Online Now
+        </a>
+
+        <a
+          class="cta-btn secondary-btn"
+          href="https://yaniswatching.itch.io/survive-min"
+          target="_blank"
+        >
+          Official itch.io Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>About The Game</h2>
+
+    <p>
+      Survive Min is a psychological horror visual novel centered around a single terrifying night.
+      Strange noises echo outside your home. People around the neighborhood have started disappearing.
+      Bodies are being found nearby.
+    </p>
+
+    <p>
+      Then one night, the sounds stop coming from outside.
+      They begin coming from inside your room.
+    </p>
+
+    <p>
+      The game revolves around Min — an unpredictable entity whose behavior constantly shifts between affectionate,
+      manipulative, playful, unsettling, and dangerous.
+    </p>
+
+    <div class="screenshot">
+      <img src="8.jpg" alt="Survive Min Screenshot" />
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why Players Love It</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Psychological Tension</h3>
+        <p>
+          Every interaction with Min feels emotionally unstable. Even simple dialogue choices can completely change the atmosphere.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Multiple Endings</h3>
+        <p>
+          The game features branching routes, survival choices, death endings, and a memorable true ending.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Atmospheric Horror</h3>
+        <p>
+          Strong visual presentation, expressive character art, and unsettling emotional pacing create an unforgettable experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="quote">
+      “One of the most memorable yandere visual novels I’ve played in years.”
+    </div>
+
+    <div class="quote">
+      “You never fully know whether Min is about to comfort you, manipulate you, or kill you.”
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Play Survive Min Online</h2>
+
+    <p>
+      This browser-accessible version allows players to experience Survive Min directly online across desktop and mobile browsers.
+    </p>
+
+    <div style="margin-top: 35px;">
+      <a
+        class="cta-btn primary-btn"
+        href="https://survivemin.live/"
+        target="_blank"
+      >
+        Launch Browser Version
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>
+      Official Game:
+      <a href="https://yaniswatching.itch.io/survive-min" target="_blank">
+        itch.io
+      </a>
+    </p>
+
+    <p style="margin-top: 10px;">
+      Browser Version:
+      <a href="https://survivemin.live/" target="_blank">
+        survivemin.live
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>
